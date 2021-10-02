@@ -1,0 +1,36 @@
+<div class="col-6 animate__animated animate__bounce  animate__slow">
+  <!-- <mat-card-title class="text-center">Add Courses</mat-card-title> -->
+  <div class="title text-center mr-3"><h4>Add Courses</h4></div>
+  <form  [formGroup]="courseForm" (ngSubmit)="submitForm()">
+    <div class="form-group"> 
+    
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Outline form Course Name</mat-label>
+      <input matInput placeholder="Course Name" formControlName="courseName">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>input must be filled</mat-hint>
+    </mat-form-field>
+   </div>
+   <div class="form-group"> 
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Outline form Course Name</mat-label>
+      <input matInput placeholder="Course code" formControlName="courseCode">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>input must be filled</mat-hint>
+    </mat-form-field>
+   </div>
+   <div class="form-group">
+  
+     <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Outline form Course Name</mat-label>
+      <input matInput placeholder="course unit" formControlName="courseUnit">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>input must be filled</mat-hint>
+    </mat-form-field>
+   </div>
+   <div class="form-group">
+    <button class="add-course" mat-raised-button type="submit">add Course</button>
+    </div>
+  </form>
+</div>

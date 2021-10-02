@@ -1,0 +1,18 @@
+<div class="col-6 justify-content-center">
+  <h4 class="text-center">Assign Course to  Staff</h4>
+  <mat-divider class="full-width"></mat-divider>
+  <form [formGroup]="departmentForm" (ngSubmit)="submit()">
+    <mat-card-subtitle>Department's Name</mat-card-subtitle>
+    <div class="form-group">
+      <mat-form-field appearance="outline" >
+        <mat-label>Outline form Department</mat-label>
+        <input matInput placeholder="Department" formControlName="department">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>input must be filled</mat-hint>
+      </mat-form-field>
+     </div>
+     <div class="form-group">
+     <button class="add-course" mat-raised-button type="submit">add Department</button>
+     </div>
+  </form>
+</div>

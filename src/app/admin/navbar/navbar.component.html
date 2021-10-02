@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container animate__animated animate__headShake animate__slow">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="/admin/nav/courses">Create Courses</a>
+      <a mat-list-item href="/admin/nav/new-staff">create Staffs</a>
+      <a mat-list-item href="/admin/nav/department">Department</a>
+      <a mat-list-item href="#">Log Out</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>portalsystem</span>
+    </mat-toolbar>
+    <div class="pt-4 ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-3">
+            <mat-card class="card">
+              <mat-card-title class="text-danger"><mat-icon> man</mat-icon>staffs  {{staff_lentth}}</mat-card-title>
+              <mat-divider></mat-divider>
+            </mat-card>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <mat-card class="card">
+              <mat-card-title class="text-primary">Courses <mat-icon>subjects</mat-icon> {{course_length}}</mat-card-title>
+              <mat-divider></mat-divider>
+            </mat-card>
+          </div>
+          <div class="col-md-3 col-sm-3">
+          <mat-card class="card">
+            <mat-card-title class="text-success">Students <mat-icon>people</mat-icon></mat-card-title>
+            <mat-divider></mat-divider>
+          </mat-card>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <mat-card class="card">
+            <mat-card-title class="text-success">Department <mat-icon>people</mat-icon>{{department_length}}</mat-card-title>
+            <mat-divider></mat-divider>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="clear-fix"></p>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="row mx-auto">
+    <div class="col-md-8">
+      <mat-horizontal-stepper #stepper>
+        <mat-step [stepControl]="staffRegInfosForms" errorMessage="Name is required.">
+          <form [formGroup]="staffRegInfosForms">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder=" First name" formControlName="fname" required>
+            </mat-form-field>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="staffRegInfosForms" errorMessage="last name is required.">
+          <form [formGroup]="staffRegInfosForms">
+            <ng-template matStepLabel>Fill out your last name</ng-template>
+            <mat-form-field>
+              <mat-label>Last name</mat-label>
+              <input matInput placeholder="Last name" formControlName="lname"
+                     required>
+            </mat-form-field>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="staffRegInfosForms" errorMessage="email is required.">
+          <form [formGroup]="staffRegInfosForms">
+            <ng-template matStepLabel>Fill out your email</ng-template>
+            <mat-form-field>
+              <mat-label>Email Address</mat-label>
+              <input matInput placeholder="Last name" formControlName="email"
+                     required>
+            </mat-form-field>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="staffRegInfosForms" errorMessage="Phone number is required.">
+          <form [formGroup]="staffRegInfosForms">
+            <ng-template matStepLabel>Fill out your number .</ng-template>
+            <mat-form-field>
+              <mat-label>Telephone</mat-label>
+              <input matInput placeholder="Telephone" formControlName="phone"
+                     required>
+            </mat-form-field>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="staffRegInfosForms" errorMessage="Phone number is required.">
+          <form [formGroup]="staffRegInfosForms">
+            <ng-template matStepLabel>Fill department.</ng-template>
+            <div class="form-group">
+              <label for="courses">available courses:</label>
+              <div *ngFor="let dept of departments; let i = index">
+                <label  *ngFor="let d of dept">
+                  <!-- <div>{{d.dept_name}} <input type="checkbox" /><br></div> -->
+                  <input type="checkbox" [value]="d._id" (change)="handlechecked($event)" />
+                  {{d.dept_name}}
+                 
+                </label>
+              </div>
+            </div>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="staffRegInfosForms" errorMessage="Courses required.">
+          <form [formGroup]="staffRegInfosForms">
+            <ng-template matStepLabel>select courses</ng-template>
+              <mat-label>Courses</mat-label>
+              <div class="form-group">
+                <div *ngFor="let courses of allCourse; let i = index">
+                  <label  *ngFor="let c of courses">
+                    <input type="checkbox" [value]="c._id" (change)="handleCourses($event)" />
+                    {{c.courses_name}}
+                   
+                  </label>
+                </div>
+              </div>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done? Submit!</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-raised-button matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" [disabled]="staffRegInfosForms.invalid" (click)="createStaff()">submit</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+    <div class="col-md-4">
+      <h3>All Staffs</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>Names</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <td>1</td>
+            <td>Bola</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- staff name -->
+<!-- staff lasname -->
+<!-- staff email -->
+<!-- staff phone -->
+<!-- staff Department -->
+<!-- courses assigned to staff -->
+

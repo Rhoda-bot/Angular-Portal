@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row pt-4">
+    <div class="col-6">
+      <mat-card >
+        <div *ngFor="let dept of staff_dept">
+          <h3 class="text-center">My Department is <b><span> {{dept.dept_name}}</span></b></h3>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-6">
+      <mat-card >
+        <div *ngFor="let course of staff_course">
+          <h3 class="text-center">Courses Taken by me are: <b>{{course.courses_name}}</b></h3>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div class="container pt-2">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+       <mat-card-title class="text-center">Table Of Content</mat-card-title>
+        <div class="row">
+          <div class="col-4">
+            <button mat-raised-button color='primary'>add some content</button>
+          </div>
+          <div class="col-4">
+           <button mat-raised-button color='primary' (click)=" openDialog()">set quiz or test</button>
+         </div>
+         <div class="col-4">
+          <button mat-raised-button color='primary'>view students</button>
+        </div>
+        
+        </div>
+
+      </mat-card>
+    </div>
+    <div class="container">
+      <div class="row pt-3">
+        <div class="col-12 footer">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>S/N</th>
+                <th>Question</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+                <th>Option 4</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+                <th>APROVED</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let questions of allQuestions; ">
+              <tr *ngFor="let quest of questions; let i = index">
+                <td>{{quest.question}}</td>
+                <td>{{quest.option1}}</td>
+                <td>{{quest.option2}}</td>
+                <td>{{quest.option3}}</td>
+                <td>{{quest.option4}}</td>
+                <td>{{quest.rightAns}}</td>
+                <td><button mat-raised-button>Edit</button></td>
+                <td><button mat-raised-button>Delete</button></td>
+                <td><button mat-raised-button>False</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
